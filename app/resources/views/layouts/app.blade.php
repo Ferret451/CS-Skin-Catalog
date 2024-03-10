@@ -17,7 +17,11 @@
 <body style="background: #0c5460">
     @include('inc.header')
 
+
     @yield('content')
+
+
+    @include('inc.footer')
 </body>
 </html>
 
