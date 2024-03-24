@@ -17,12 +17,15 @@
     <script
         src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 </head>
 <body>
     @include('inc.header')
 
-    @yield('content')
+    <div class="container d-flex align-items-center col-8">
+        @yield('content')
+    </div>
 
     @include('inc.footer')
 </body>
