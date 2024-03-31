@@ -2,15 +2,13 @@
     <header>
         <nav id="header" class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <!-- Logo -->
+
                 <a class="navbar-brand" href="/"> <img src="{{ asset('/cs-icon.ico') }}" alt="Logo"> </a>
 
-                <!-- Button for folding on mobile devices -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Content -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -28,13 +26,20 @@
                                 <i class="bi bi-calendar"></i> Calendar
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link  {{ Route::currentRouteName() === 'calendar' ? 'active' : '' }}" href="{{ route('visited-pages') }}">
+                                <i class="bi bi-list-ul"></i> Visited Pages
+                            </a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item d-flex">
-                            <button class="btn btn-outline-success me-2" type="submit">
-                                <i class="bi bi-search"></i>
-                            </button>
-                            <input class="form-control me-2" type="search" placeholder="Find..." aria-label="Search">
+                            <form action="{{ route('catalog') }}" method="GET" class="d-flex mb-0">
+                                <input class="form-control me-2" type="search" placeholder="Find..." aria-label="Search" name="query">
+                                <button class="btn btn-outline-success me-2" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
                         </li>
                         <li class="nav-item">
                             @if(auth()->check())

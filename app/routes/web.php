@@ -1,24 +1,31 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VisitedPagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 })
-    -> name('home');
+    -> name('home')
+    ->middleware('track-pages');
 
 Route::get('/catalog', [CatalogController::class, 'index'])
-    -> name('catalog');
+    -> name('catalog')
+    ->middleware('track-pages');
+
 
 Route::get('/sign', function () {
     return view('sign');
-}) -> name('sign');
+})
+    -> name('sign')
+    -> middleware('track-pages');
 
 Route::post('/sign/login', [LoginController::class, 'login'])
-    -> name('login-form');
+    -> name('login');
 Route::get('/logout', [LoginController::class, 'logout'])
     -> name('logout');
 
@@ -29,9 +36,12 @@ Route::get('/user', function () {
     $user = auth()->user();
     return view('user')->with('user', $user);
 })
-    -> name('user');
+    -> name('user')
+    -> middleware('auth')
+    -> middleware('track-pages');
 
-Route::get('/calendar', function () {
-    return view('calendar');
-})
+Route::get('/calendar', [CalendarController::class, 'index'])
     -> name('calendar');
+
+Route::get('/visited-pages', [VisitedPagesController::class, 'index'])
+    ->name('visited-pages');

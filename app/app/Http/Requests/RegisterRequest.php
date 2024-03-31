@@ -19,19 +19,10 @@ class RegisterRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'name-reg' => 'required',
-            'email-reg' => 'email|required',
-            'password-reg' => 'required|min:8|max:20',
-            'password_confirmation-reg' => 'required|same:password-reg',
-        ];
-    }
-
-    public function attributes() {
-        return [
-            'name-reg' => 'name',
-            'email-reg' => 'email',
-            'password-reg' => 'password',
-            'password_confirmation-reg' => 'confirm password'
+            'name' => 'required|min:3|max:10',
+            'email' => 'email|required',
+            'password' => 'required|min:8|max:20',
+            'password_confirmation' => 'required|same:password',
         ];
     }
 }

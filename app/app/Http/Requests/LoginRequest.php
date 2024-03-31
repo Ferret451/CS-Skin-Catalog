@@ -19,15 +19,8 @@ class LoginRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'email-log' => 'email|required',
-            'password-log' => 'required|min:8|max:20',
-        ];
-    }
-
-    public function attributes() {
-        return [
-            'email-log' => 'email',
-            'password-log' => 'password',
+            'email' => 'email|required',
+            'password' => 'required',
         ];
     }
 }

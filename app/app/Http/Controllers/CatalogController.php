@@ -9,7 +9,7 @@ class CatalogController extends Controller
 {
     public function index(Request $req)
     {
-        $items_count = 99;
+        $items_count = 32;
 
         $curr_page = $req->input('page', 0);
         $prev_page = $curr_page <= 0 ? 0 : ($curr_page - 1);
@@ -17,12 +17,14 @@ class CatalogController extends Controller
 
         $start = $items_count * $curr_page;
 
+        $query = $req->input('query');
+
         try {
             $client = new Client([
                 'verify' => false,
             ]);
 
-            $response = $client->get("https://steamcommunity.com/market/search/render?norender=1&start={$start}&count={$items_count}&appid=730");
+            $response = $client->get("https://steamcommunity.com/market/search/render?norender=1&start={$start}&count={$items_count}&query={$query}&appid=730");
             $data = json_decode($response->getBody(), true);
             $results = $data['results'];
 

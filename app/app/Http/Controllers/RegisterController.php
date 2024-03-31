@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller {
     function register(RegisterRequest $req) {
         $user = new User();
-        $user->name = $req->input('name-reg');
-        $user->email = $req->input('email-reg');
-        $user->password = Hash::make($req->input('password-reg'));
+        $user->name = $req->input('name');
+        $user->email = $req->input('email');
+        $user->password = Hash::make($req->input('password'));
 
         $user->save();
 
