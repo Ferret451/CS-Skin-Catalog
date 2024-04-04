@@ -7,41 +7,16 @@ use App\Http\Controllers\VisitedPagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
 
-Route::get('/home', function () {
-    return view('home');
-})
-    -> name('home')
-    ->middleware('track-pages');
+Route::get('/home', function () { return view('home'); }) -> middleware('track-pages') -> name('home');
 
-Route::get('/catalog', [CatalogController::class, 'index'])
-    -> name('catalog')
-    ->middleware('track-pages');
+Route::get('/catalog', [CatalogController::class, 'index']) -> middleware('track-pages') -> name('catalog');
 
+Route::get('/calendar', [CalendarController::class, 'index']) -> name('calendar');
 
-Route::get('/sign', function () {
-    return view('sign');
-})
-    -> name('sign')
-    -> middleware('track-pages');
+Route::get('/visited-pages', [VisitedPagesController::class, 'index']) ->name('visited-pages');
 
-Route::post('/sign/login', [LoginController::class, 'login'])
-    -> name('login');
-Route::get('/logout', [LoginController::class, 'logout'])
-    -> name('logout');
-
-Route::post('/sign/register', [RegisterController::class, 'register'])
-    -> name('register-form');
-
-Route::get('/user', function () {
-    $user = auth()->user();
-    return view('user')->with('user', $user);
-})
-    -> name('user')
-    -> middleware('auth')
-    -> middleware('track-pages');
-
-Route::get('/calendar', [CalendarController::class, 'index'])
-    -> name('calendar');
-
-Route::get('/visited-pages', [VisitedPagesController::class, 'index'])
-    ->name('visited-pages');
+Route::get('/sign', function () { return view('sign'); }) -> middleware('track-pages') -> name('sign');
+Route::post('/sign/login', [LoginController::class, 'login']) -> name('login');
+Route::post('/sign/register', [RegisterController::class, 'register']) -> name('register');
+Route::get('/logout', [LoginController::class, 'logout']) -> name('logout');
+Route::get('/user', function () { $user = auth()->user(); return view('user')->with('user', $user); }) -> middleware(['auth', 'track-pages']) -> name('user');
