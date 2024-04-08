@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller {
+    function create() {
+        return view('login');
+    }
+
     function login(LoginRequest $req) {
         $credentials = $req->only('email', 'password');
         $credentials = [
@@ -31,6 +35,6 @@ class LoginController extends Controller {
         $request->session()->regenerateToken();
 
         $cookie = Cookie::forget('session-cookie');
-        return redirect(route('sign'))->withCookie($cookie);
+        return redirect(route('login'))->withCookie($cookie);
     }
 }

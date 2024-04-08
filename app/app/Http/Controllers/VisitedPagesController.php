@@ -13,4 +13,10 @@ class VisitedPagesController extends Controller
 
         return view('visited_pages')->with('visitedPages', $visitedPages ?? []);
     }
+
+    public function clear(Request $req) {
+        cookie()->forget('visited_page');
+
+        return redirect()->back();
+    }
 }

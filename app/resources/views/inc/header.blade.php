@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  {{ Route::currentRouteName() === 'calendar' ? 'active' : '' }}" href="{{ route('visited-pages') }}">
+                            <a class="nav-link  {{ Route::currentRouteName() === 'visited.pages' ? 'active' : '' }}" href="{{ route('visited.pages') }}">
                                 <i class="bi bi-list-ul"></i> Visited Pages
                             </a>
                         </li>
@@ -47,7 +47,8 @@
                                     <i class="bi bi-person" style="font-size: 1.5rem"></i>
                                 </a>
                             @else
-                                <a class="nav-link {{ Route::currentRouteName() === 'sign' ? 'active' : '' }}" href="{{ route('sign') }}">
+                                <a class="nav-link {{ Route::currentRouteName() === 'login' ||
+                                                      Route::currentRouteName() === 'register' ? 'active' : '' }}" href="{{ route('login') }}">
                                     <i class="bi bi-person" style="font-size: 1.5rem"></i>
                                 </a>
                             @endif
