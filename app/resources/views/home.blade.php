@@ -30,7 +30,7 @@
                 >
             </div>
             <div class="container col-8 text-light p-0">
-                <h2>For developers</h2>
+                <h2>@lang('home.for-devs')</h2>
                 <p class="fs-4 mt-2">
                     @lang('home.for-devs-message')
                 </p>

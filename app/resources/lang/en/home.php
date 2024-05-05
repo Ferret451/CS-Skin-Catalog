@@ -10,6 +10,6 @@ return [
                     request next:',
     'github-message' => 'For more information go to github page, where you can find exact want you want about steam API:',
     'contact' => 'Contact',
-    'mail-message' => 'You can write us about your experience on the next email:',
-    'phone-message' => 'Or even call us and we will answer as soon as we can:',
+    'mail-message' => 'You can write us about your experience to the next email:',
+    'phone-message' => 'Or even call us and we will answer or call back as soon as we can:',
 ];
