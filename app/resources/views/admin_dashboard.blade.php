@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block') Admin Dashboard @endsection
+@section('title-block') @lang('title.admin-dashboard') @endsection
 
 @section('content')
     <div class="container mt-2 mb-2 text-center">
@@ -11,16 +11,16 @@
         @endif
         <div class="card bg-dark text-light">
             <div class="card-header">
-                <h4>User List</h4>
+                <h4>@lang('admin-dashboard.user-list')</h4>
             </div>
             <div class="card-body">
                 <table class="table table-striped bg-dark text-light">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Actions</th>
+                        <th>@lang('admin-dashboard.name')</th>
+                        <th>@lang('admin-dashboard.email')</th>
+                        <th>@lang('admin-dashboard.actions')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,8 +31,8 @@
                             <td>{{ $user->email }}</td>
                             <td >
                                 <div class="btn-group" role="group" aria-label="User Actions">
-                                    <a href="{{ route('admin.user.edit', ['userId' => $user->id]) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.user.sendEmailForm', ['userId' => $user->id]) }}" class="btn btn-success">Send Email</a>
+                                    <a href="{{ route('admin.user.edit', ['userId' => $user->id]) }}" class="btn btn-primary">@lang('admin-dashboard.edit')</a>
+                                    <a href="{{ route('admin.user.sendEmailForm', ['userId' => $user->id]) }}" class="btn btn-success">@lang('admin-dashboard.send-email')</a>
                                 </div>
                             </td>
                         </tr>

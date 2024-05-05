@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
-@section('title-block') Home @endsection
+@section('title-block') @lang('title.home') @endsection
 
 @section('content')
     <main>
         <section class="container row mt-5 info-section" id="general-info">
             <div class="container col-8 text-light">
-                <h2>About</h2>
+                <h2>@lang('home.about')</h2>
                 <p class="fs-4 mt-2">
-                    {!! $about !!}
-                    @lang('')
+                    @lang('home.about-message')
                 </p>
-                <a href="{{ route('catalog') }}" class="btn bg-dark text-light">Go to catalog</a>
+                <a href="{{ route('catalog') }}" class="btn bg-dark text-light">@lang('home.to-catalog')</a>
             </div>
             <div class="container col-4 d-flex justify-content-center">
                 <img
@@ -33,22 +32,22 @@
             <div class="container col-8 text-light p-0">
                 <h2>For developers</h2>
                 <p class="fs-4 mt-2">
-                    {!! $forDevsDesc !!}
+                    @lang('home.for-devs-message')
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
                         <a href="{{route('redirect', ['url' => urlencode("https://steamcommunity.com/market/search/render?norender=1&start=1&count=99&appid=730")])}}" class="d-block text-decoration-none">
-                            {!! $apiLink !!}
+                            https://steamcommunity.com/market/search/render?norender=1&start=1&count=99&appid=730
                         </a>
                     </div>
                 </div>
                 <p class="fs-4 mt-2">
-                    {!! $githubDesc !!}
+                    @lang('home.github-message')
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
                         <a href="{{route('redirect', ['url' => urlencode("https://github.com/Revadike/InternalSteamWebAPI/wiki")])}}" class="d-block text-decoration-none">
-                            {!! $githubLink !!}
+                            https://github.com/Revadike/InternalSteamWebAPI/wikim
                         </a>
                     </div>
                 </div>
@@ -57,21 +56,21 @@
 
         <section class="container row mt-5 mb-5 info-section" id="general-info">
             <div class="container col-8 text-light">
-                <h2>Contact</h2>
+                <h2>@lang('home.contact')</h2>
                 <p class="fs-4 mt-2">
-                    {!! $emailDesc !!}
+                    @lang('home.mail-message')
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <p class="fs-6 mb-0"> {!! $email !!} </p>
+                        <p class="fs-6 mb-0"> fakemail@gmail.com </p>
                     </div>
                 </div>
                 <p class="fs-4 mt-2">
-                    {!! $phoneDesc !!}
+                    @lang('home.phone-message')
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <p class="fs-6 mb-0"> {!! $phone !!} </p>
+                        <p class="fs-6 mb-0"> +5 (55) 555-55-55 </p>
                     </div>
                 </div>
             </div>

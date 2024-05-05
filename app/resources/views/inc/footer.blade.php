@@ -3,7 +3,7 @@
         <div class="container py-4">
             <div class="row">
                 <div class="col-6">
-                    <h5 class="mb-3">Follow us:</h5>
+                    <h5 class="mb-3">@lang('footer.social-networks')</h5>
                     <div class="d-flex gap-4">
                         <a href="https://www.instagram.com/" class="text-light">
                             <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
@@ -17,11 +17,11 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <h5 class="mb-3">Contact us:</h5>
+                    <h5 class="mb-3">@lang('footer.contact-us')</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-geo-alt-fill" style="font-size: 1.5rem;"></i>
-                            <span class="ms-2">9 Gikalo, Minsk, Belarus</span>
+                            <span class="ms-2">@lang('footer.street')</span>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-telephone-fill" style="font-size: 1.5rem;"></i>
@@ -36,7 +36,7 @@
             </div>
             <hr class="bg-light mt-4 mb-3">
             <div class="text-center">
-                <p>&copy; 2024 All rights reserved | Habrus Stanilsau</p>
+                <p>@lang('footer.rights')</p>
             </div>
         </div>
     </footer>

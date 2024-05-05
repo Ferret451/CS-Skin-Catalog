@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block') Forgot password @endsection
+@section('title-block') @lang('title.reset-password') @endsection
 
 @section('content')
     <div class="container">
@@ -17,23 +17,23 @@
 
             <div class="col-md-6 m-4">
                 <div class="card bg-dark text-light">
-                    <div class="card-header"> Password reset </div>
+                    <div class="card-header"> @lang('title.reset-password') </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('password.update', ['email' => $email, 'token' => $token]) }}">
                             @csrf
 
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">@lang('reset-password.password')</label>
                                 <input type="password" id="password" name="password" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="password_confirmation">Confirm Password</label>
+                                <label for="password_confirmation">@lang('reset-password.confirm-password')</label>
                                 <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
                             </div>
 
                             <div class="container text-center">
-                                <button type="submit" class="btn btn-primary mt-2">Reset</button>
+                                <button type="submit" class="btn btn-primary mt-2">@lang('reset-password.reset')</button>
                             </div>
                         </form>
                     </div>

@@ -20,7 +20,7 @@ class CalendarController extends Controller
         $nextMonth = $firstDayOfMonth->copy()->addMonth()->month;
         $monthName = $firstDayOfMonth->format('F');
 
-        $weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        $weekdays = trans('calendar.weekdays');
         $descriptions = [
             '2024-04-15' => 'Описание для 15 апреля',
             '2024-04-20' => 'Описание для 20 апреля',

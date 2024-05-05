@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LinkClickController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -11,6 +12,8 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\VisitedPagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
+
+Route::get('/lang/{lang}', [LanguageController::class, 'changeLanguage'])->name('change-language');
 
 Route::get('/home', [HomeController::class, 'create']) -> name('home');
 

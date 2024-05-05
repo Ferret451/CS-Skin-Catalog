@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block') Catalog @endsection
+@section('title-block') @lang('title.catalog') @endsection
 
 @section('content')
     <div class="container">

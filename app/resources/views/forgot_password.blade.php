@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block') Forgot password @endsection
+@section('title-block') @lang('title.forgot-password') @endsection
 
 @section('content')
     <div class="container">
@@ -16,23 +16,23 @@
             @endif
 
             @if(session('status'))
-                <div class="alert alert-info mt-3"> We have emailed your reset link!</div>
+                <div class="alert alert-info mt-3"> @lang('forgot-password.mail-sent-message')</div>
             @endif
 
             <div class="col-md-6 m-4">
                 <div class="card bg-dark text-light">
-                    <div class="card-header"> Reset password </div>
+                    <div class="card-header"> @lang('title.reset-password') </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
 
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">@lang('forgot-password.email')</label>
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
 
                             <div class="container text-center">
-                                <button type="submit" class="btn btn-primary mt-2">Send reset link</button>
+                                <button type="submit" class="btn btn-primary mt-2">@lang('forgot-password.send-link')</button>
                             </div>
                         </form>
                     </div>
