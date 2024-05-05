@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Link;
+use App\Models\Tracker;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -10,9 +12,11 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        $users = User::where('id', '!=', auth()->id())->get();
+        $users = User::where('id', '!=', auth()->id())->orderBy('id', 'asc')->get();
+        $links = Link::orderBy('id', 'asc')->get(); // Сортировка по возрастанию
+        $trackers = Tracker::orderBy('id', 'asc')->get(); // Сортировка по убыванию
 
-        return view('admin_dashboard', ['users' => $users]);
+        return view('admin_dashboard', compact('users', 'links', 'trackers'));
     }
 
     public function editUser($userId)

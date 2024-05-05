@@ -41,5 +41,59 @@
                 </table>
             </div>
         </div>
+            <div class="card bg-dark text-light mt-4">
+                <div class="card-header">
+                    <h4>Link Table</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped bg-dark text-light">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Link</th>
+                            <th>Click Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($links as $link)
+                            <tr>
+                                <td>{{ $link->id }}</td>
+                                <td>{{ $link->url }}</td>
+                                <td>{{ $link->clicks }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Отображение данных из таблицы Tracker -->
+            <div class="card bg-dark text-light mt-4">
+                <div class="card-header">
+                    <h4>Tracker Table</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped bg-dark text-light">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>IP</th>
+                            <th>OS</th>
+                            <th>Browser</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($trackers as $tracker)
+                            <tr>
+                                <td>{{ $tracker->id }}</td>
+                                <td>{{ $tracker->ip }}</td>
+                                <td>{{ $tracker->os }}</td>
+                                <td>{{ $tracker->browser }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
     </div>
 @endsection
