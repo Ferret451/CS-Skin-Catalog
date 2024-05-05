@@ -15,7 +15,7 @@
                     <!-- Другие данные пользователя, если есть -->
                 </ul>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-center">
                 <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
             </div>
         </div>

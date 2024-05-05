@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\LanguageMiddleware;
+use App\Http\Middleware\RecolorByRegexp;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -36,7 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-//            \App\Http\Middleware\TrackVisitedPages::class,
+            LanguageMiddleware::class,
         ],
 
         'api' => [
@@ -66,5 +68,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'track.pages' => \App\Http\Middleware\TrackVisitedPages::class,
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

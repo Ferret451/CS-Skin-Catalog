@@ -3,8 +3,8 @@
 @section('title-block') Login @endsection
 
 @section('content')
-    <div class="container justify-content-center">
-        <div class="row justify-content-center">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center">
 
             @if($errors->any())
                 <div class="alert alert-danger mt-3">
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <a href="{{ route('register') }}" class="btn btn-primary m-2">Sign in</a>
+            <a href="{{ route('register') }}" class="btn btn-secondary m-2">Sign Up</a>
 
         </div>
     </div>

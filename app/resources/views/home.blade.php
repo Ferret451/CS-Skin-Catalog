@@ -8,9 +8,8 @@
             <div class="container col-8 text-light">
                 <h2>About</h2>
                 <p class="fs-4 mt-2">
-                    The CS Skins catalog offers a wide selection of stylish skins for your playable character in Counter-Strike.
-                    Here you will find over 100.000 of popular items, new arrivals, as well as special offers and discounts on the best products.
-                    Click the next button to get full experience.
+                    {!! $about !!}
+                    @lang('')
                 </p>
                 <a href="{{ route('catalog') }}" class="btn bg-dark text-light">Go to catalog</a>
             </div>
@@ -34,23 +33,22 @@
             <div class="container col-8 text-light p-0">
                 <h2>For developers</h2>
                 <p class="fs-4 mt-2">
-                    We are using steam API to get information for catalog. You can see example of the
-                    request next:
+                    {!! $forDevsDesc !!}
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <a href="https://steamcommunity.com/market/search/render?norender=1&start=1&count=99&appid=730" class="d-block text-decoration-none">
-                            https://steamcommunity.com/market/search/render?norender=1&start=1&count=99&appid=730
+                        <a href="{{route('redirect', ['url' => urlencode("https://steamcommunity.com/market/search/render?norender=1&start=1&count=99&appid=730")])}}" class="d-block text-decoration-none">
+                            {!! $apiLink !!}
                         </a>
                     </div>
                 </div>
                 <p class="fs-4 mt-2">
-                    For more information go to github page, where you can find exact want you want about steam API:
+                    {!! $githubDesc !!}
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <a href="https://github.com/Revadike/InternalSteamWebAPI/wiki" class="d-block text-decoration-none">
-                            https://github.com/Revadike/InternalSteamWebAPI/wiki
+                        <a href="{{route('redirect', ['url' => urlencode("https://github.com/Revadike/InternalSteamWebAPI/wiki")])}}" class="d-block text-decoration-none">
+                            {!! $githubLink !!}
                         </a>
                     </div>
                 </div>
@@ -61,19 +59,19 @@
             <div class="container col-8 text-light">
                 <h2>Contact</h2>
                 <p class="fs-4 mt-2">
-                    You can write us about your experience on the next email:
+                    {!! $emailDesc !!}
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <p class="fs-6 mb-0"> fakemail@gmail.com </p>
+                        <p class="fs-6 mb-0"> {!! $email !!} </p>
                     </div>
                 </div>
                 <p class="fs-4 mt-2">
-                    Or even call us and we will answer as soon as we can:
+                    {!! $phoneDesc !!}
                 </p>
                 <div class="container text-center">
                     <div class="border rounded p-3 shadow bg-dark">
-                        <p class="fs-6 mb-0"> +5 (55) 555-55-55 </p>
+                        <p class="fs-6 mb-0"> {!! $phone !!} </p>
                     </div>
                 </div>
             </div>

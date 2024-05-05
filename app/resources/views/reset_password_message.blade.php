@@ -1,4 +1,3 @@
-
 <h1>Password Reset Request</h1>
 <p>Hello,</p>
 <p>You are receiving this email because we received a password reset request for your account.</p>

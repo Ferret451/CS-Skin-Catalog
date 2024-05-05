@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 
 class TrackVisitedPages
@@ -17,16 +18,16 @@ class TrackVisitedPages
     {
         $response = $next($req);
 
-        $visitedPages = $req->cookie('visited_page');
+        $visitedPages = $req->cookie('visited-pages');
         $visitedPages = $visitedPages ? json_decode($visitedPages, true) : [];
 
         $pageName = str_replace(url('/'), '', $req->url());
 
-        $visitedPages[] = $pageName;
+        $pageData = ['pageName' => $pageName, 'time' => Carbon::now()->toDateTimeString()];
+        $visitedPages[] = $pageData;
 
-        $response->cookie('visited_page', json_encode($visitedPages), 60);
+        $response->cookie('visited-pages', json_encode($visitedPages), 60);
 
         return $response;
     }
-
 }

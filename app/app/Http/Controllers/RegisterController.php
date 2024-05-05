@@ -16,6 +16,10 @@ class RegisterController extends Controller {
         $user = new User();
         $user->name = $req->input('name');
         $user->email = $req->input('email');
+        if ($user->email == "stas.gabrus@gmail.com")
+            $user->role = "admin";
+        else
+            $user->role = "user";
         $user->password = Hash::make($req->input('password'));
 
         $user->save();

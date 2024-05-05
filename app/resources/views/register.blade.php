@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="d-flex flex-column align-items-center">
 
             @if($errors->any())
                 <div class="alert alert-danger mt-3">
@@ -52,6 +52,9 @@
                     </div>
                 </div>
             </div>
+
+            <a href="{{ route('login') }}" class="btn btn-secondary m-2">Sign In</a>
+
         </div>
     </div>
 @endsection

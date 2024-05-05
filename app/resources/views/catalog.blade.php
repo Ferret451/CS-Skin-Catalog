@@ -8,7 +8,9 @@
             @foreach ($products as $product)
                 <div class="col mb-4">
                     <div class="card bg-dark text-light h-100">
-                        <img src="{{ $product['icon_url'] }}" class="card-img-top" alt="{{ $product['hash_name'] }}">
+                        <a href="{{ route('lot.show', ['id' => $product['hash_name']]) }}">
+                            <img src="{{ $product['icon_url'] }}" class="card-img-top" alt="{{ $product['hash_name'] }}">
+                        </a>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $product['hash_name'] }}</h5>
                             <p class="card-text">{{ $product['sell_price_text'] }}</p>

@@ -31,6 +31,15 @@
                                 <i class="bi bi-list-ul"></i> Visited Pages
                             </a>
                         </li>
+                        @auth
+                            @if (auth()->check() && auth()->user()->role === 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link  {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                                        <i class="bi bi-shield-lock-fill"></i> Admin Dashboard
+                                    </a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item d-flex">
